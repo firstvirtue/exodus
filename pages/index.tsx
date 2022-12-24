@@ -1,9 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+
 import styles from "../styles/Home.module.css";
+import main from "./script/canvas";
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    main();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,9 +21,17 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js</a> in CodeSandbox!
-          by Sangoh Lee(Jake Lee)
+          Welcome to <a href="https://nextjs.org">Next.js</a> in CodeSandbox! by
+          Sangoh Lee(Jake Lee) Wow?
         </h1>
+
+        <canvas id="scene" />
+        <p id="copy">
+          난 내 예술로 사람들을 어루만지고 싶다.
+          그들이 이렇게 말하길 바란다.
+          그는 마음이 깊은 사람이구나, 마음이 따뜻한 사람이구나.
+        </p>
+        <small>— 빈센트 반 고흐, 러빙 빈센트</small>
 
         <p className={styles.description}>
           Get started by editing{" "}
