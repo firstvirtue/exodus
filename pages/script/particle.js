@@ -17,6 +17,7 @@ const Particle = function ({ x, y, ww, wh, ctx }) {
   this.friction = Math.random() * 0.05 + 0.94;
 
   this.color = colors[Math.floor(Math.random() * (colors.length + 1))];
+
 };
 
 Particle.prototype.render = function () {
@@ -26,7 +27,7 @@ Particle.prototype.render = function () {
   this.vy += this.accY;
   this.vw *= this.friction;
   this.vy *= this.friction;
-
+  
   this.x += this.vx;
   this.y += this.vy;
 

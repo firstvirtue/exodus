@@ -31,15 +31,18 @@ const main = () => {
     ctx.globalCompositeOperation = "screen";
 
     particles = [];
-    for (let i = 0; i < ww; i += Math.round(ww / 550)) {
-      for (let j = 0; j < wh; j += Math.round(ww / 550)) {
+    for (let i = 0; i < ww; i += Math.round(ww / 150)) {
+      for (let j = 0; j < wh; j += Math.round(ww / 150)) {
         if (data[(i + j * ww) * 4 + 3] > 150) {
-          particles.push(new Particle({ i, j, ww, wh, ctx }));
+          const x = i
+          const y = j
+          particles.push(new Particle({ x, y, ww, wh, ctx }));
         }
       }
     }
 
     amount = particles.length;
+    // console.log(amount)
   }
 
   function render() {
