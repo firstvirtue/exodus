@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Exodus in CodeSandbox! by
-          Sangoh Lee
+          <em> Sangoh Lee</em>
         </h1>
 
         <canvas id="scene" />
