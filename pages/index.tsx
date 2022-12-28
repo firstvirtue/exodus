@@ -14,15 +14,15 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Exodus</title>
         <meta name="description" content="Jake Lee portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js</a> in CodeSandbox! by
-          Sangoh Lee(Jake Lee) Wow?
+          Exodus in CodeSandbox! by
+          Sangoh Lee
         </h1>
 
         <canvas id="scene" />

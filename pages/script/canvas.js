@@ -13,12 +13,12 @@ const main = () => {
 
   const copy = document.querySelector("#copy");
 
-  let ww = (scene.width = window.innerWidth);
-  let wh = (scene.height = window.innerHeight);
+  let ww = scene.width = window.innerWidth;
+  let wh = scene.height = window.innerHeight / 2;
 
   function initScene() {
     ww = scene.width = window.innerWidth;
-    wh = scene.height = window.innerHeight;
+    wh = scene.height = window.innerHeight / 2;
 
     ctx.clearRect(0, 0, scene.width, scene.height);
 
