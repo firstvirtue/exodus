@@ -4,7 +4,7 @@ const main = () => {
   if (typeof window !== "object") return;
 
   const scene = document.querySelector("#scene"),
-    ctx = scene.getContext("2d"),
+    ctx = scene.getContext("2d", { willReadFrequently: true }),
     mouse = { x: 0, y: 0 },
     radius = 1;
 
@@ -33,7 +33,7 @@ const main = () => {
     particles = [];
     for (let i = 0; i < ww; i += Math.round(ww / 150)) {
       for (let j = 0; j < wh; j += Math.round(ww / 150)) {
-        if (data[(i + j * ww) * 4 + 3] > 150) {
+        if (data[((i + j * ww) * 4) + 3] > 150) {
           const x = i
           const y = j
           particles.push(new Particle({ x, y, ww, wh, ctx }));

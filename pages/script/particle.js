@@ -17,6 +17,7 @@ const Particle = function ({ x, y, ww, wh, ctx }) {
   this.friction = Math.random() * 0.05 + 0.94;
 
   this.color = colors[Math.floor(Math.random() * (colors.length + 1))];
+  this.color = '#000';
 
 };
 
@@ -25,7 +26,7 @@ Particle.prototype.render = function () {
   this.accY = (this.dest.y - this.y) / 1000;
   this.vx += this.accX;
   this.vy += this.accY;
-  this.vw *= this.friction;
+  this.vx *= this.friction;
   this.vy *= this.friction;
   
   this.x += this.vx;
@@ -37,6 +38,12 @@ Particle.prototype.render = function () {
   this.ctx.fill();
 
   // [TODO] Add interaction
+  // this.accX = (this.x - mouse.x)/100;
+  // this.accY = (this.y - mouse.y)/100;
+  // this.vx += this.accX;
+  // this.vy += this.accY;
+
+  // console.log(this.x, this.y)
 };
 
 export default Particle;
