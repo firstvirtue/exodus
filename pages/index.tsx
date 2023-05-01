@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import styles from "../styles/Home.module.css";
 import main from "./script/canvas";
+import { SphereContainer } from "./components/sphere";
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
           Exodus in CodeSandbox! by
           <em> Sangoh Lee</em>
         </h1>
-
+        <SphereContainer />
         <canvas id="scene" />
         <p id="copy">
           난 내 예술로 사람들을 어루만지고 싶다.
