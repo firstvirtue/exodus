@@ -1,3 +1,7 @@
+.scene-container {
+  height: 50vh;
+}
+
 .container {
   padding: 0 2rem;
 }

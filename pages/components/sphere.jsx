@@ -14,7 +14,7 @@ function SphereObj() {
 
 function SphereContainer() {
   return (
-    <Canvas>
+    <Canvas style={{ height: '20vh'}}>
       <pointLight position={[15, 15, 15]} />
       <SphereObj />
     </Canvas>
