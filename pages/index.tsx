@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import main from "./script/canvas";
 import { SphereContainer } from "./components/sphere";
-import Scene from './components/basicParticles';
+// import Scene from './components/basicParticles';
+import Scene from './components/custom-geometry-particles';
 
 const Home: NextPage = () => {
   useEffect(() => {
