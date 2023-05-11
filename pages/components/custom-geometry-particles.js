@@ -3,8 +3,13 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
+import vertexShader from './vertexShader';
+import fragmentShader from './fragmentShader';
+
 const CustomGeometryParticles = (props) => {
   const {count, shape } = props;
+
+  const radius = 2;
 
   const points = useRef();
 
@@ -20,7 +25,8 @@ const CustomGeometryParticles = (props) => {
         positions.set([x, y, z], i * 3);
       }
     } else if(shape === "sphere") {
-      const distance = 1;
+      // const distance = 1;
+      const distance = Math.sqrt(Math.random()) * radius;
 
       for (let i = 0; i < count; i++) {
         const theta = THREE.MathUtils.randFloatSpread(360);
@@ -37,6 +43,22 @@ const CustomGeometryParticles = (props) => {
     return positions;
   }, [count, shape]);
 
+  const uniforms = useMemo(() => ({
+    uTime: {
+      value: 0.0
+    },
+    uRadius: {
+      value: radius
+    }
+    // Add any other attributes here
+  }), [])
+
+  useFrame((state) => {
+    const { clock } = state;
+
+    points.current.material.uniforms.uTime.value = clock.elapsedTime;
+  });
+
   return (
     <points ref={points}>
       <bufferGeometry>
@@ -47,11 +69,17 @@ const CustomGeometryParticles = (props) => {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial
+      {/* <pointsMaterial
         size={0.015}
         color="#5786F5"
         sizeAttenuation
         depthWrite={false}
+      /> */}
+      <shaderMaterial
+        depthWrite={false}
+        fragmentShader={fragmentShader}
+        vertexShader={vertexShader}
+        uniforms={uniforms}
       />
     </points>
   )
