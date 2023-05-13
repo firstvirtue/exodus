@@ -26,9 +26,8 @@ const CustomGeometryParticles = (props) => {
       }
     } else if(shape === "sphere") {
       // const distance = 1;
-      const distance = Math.sqrt(Math.random()) * radius;
-
       for (let i = 0; i < count; i++) {
+        const distance = Math.sqrt(Math.random()) * radius;
         const theta = THREE.MathUtils.randFloatSpread(360);
         const phi = THREE.MathUtils.randFloatSpread(360);
 
@@ -87,10 +86,10 @@ const CustomGeometryParticles = (props) => {
 
 const Scene = () => {
   return (
-    <Canvas id="basic-scene" camera={{ position: [1.5, 1.5, 1.5] }}>
+    <Canvas id="basic-scene" camera={{ position: [2.0, 2.0, 2.0] }}>
       <ambientLight intensity={0.5} />
-      <CustomGeometryParticles count={2000} shape="sphere" />
-      <OrbitControls autoRotate />
+      <CustomGeometryParticles count={4000} shape="sphere" />
+      <OrbitControls />
     </Canvas>
   )
 }
