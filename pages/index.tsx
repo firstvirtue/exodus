@@ -8,6 +8,7 @@ import main from "./script/canvas";
 import { SphereContainer } from "./components/sphere";
 // import Scene from './components/basicParticles';
 import Scene from './components/custom-geometry-particles';
+import Slide from './components/slide';
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
         </h1>
         {/* <SphereContainer /> */}
         <div className={styles['scene-container']}>
+          {/* <Slide /> */}
           <Scene />
         </div>
         <canvas id="scene" />
